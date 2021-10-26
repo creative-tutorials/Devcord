@@ -1,4 +1,3 @@
-// configureStore.js
 import counterReducer from "../Reducers";
 import { createStore, combineReducers } from "redux";
 import { persistStore, persistReducer } from "redux-persist";
@@ -11,5 +10,8 @@ const persistConfig = {
 const rootReducer = combineReducers({ counter: counterReducer });
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-export const store = createStore(persistedReducer);
+export const store = createStore(
+  persistedReducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 export const persistor = persistStore(store);
