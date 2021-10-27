@@ -1,0 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Chivo&display=swap");
+* {
+  font-family: "Chivo", sans-serif;
+  color: white;
+}
+
+.container {
+  background: url(../Images/alex-beaz-q4LIvI9NN6Y-unsplash.jpg) repeat
+    center/cover;
+}
+
+input {
+  color: black;
+}
