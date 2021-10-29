@@ -3,6 +3,7 @@ import "./Login.css";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { updateUserState } from "../../Reducers/userReducers";
+/*eslint no-useless-escape: 0*/
 const EmailRegex =
   /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 function Login() {
@@ -34,7 +35,7 @@ function Login() {
             Dispatch(
               updateUserState({
                 username: res.data.username,
-                photoUrl: res.data.imageUrl?res.data.imageUrl:"",
+                photoUrl: res.data.imageUrl ? res.data.imageUrl : "",
                 email: res.data.email,
                 userId: res.data._id,
               })
