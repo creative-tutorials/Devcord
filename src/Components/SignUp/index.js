@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import "./Login.css";
+import "./Signup.css";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { updateUserState } from "../../Reducers/userReducers";
-function Login() {
+const EmailRegex =
+  /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+function SignUp() {
   const [warning, setWarning] = useState("");
-  const EmailRegex =
-    /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
   const Dispatch = useDispatch();
   const submitLoginForm = (e) => {
     e.preventDefault();
@@ -97,4 +97,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default SignUp;

@@ -1,9 +1,13 @@
 import "./App.css";
-import Login from "./Components/Login/index";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { updateUserState } from "./Reducers/userReducers";
+
+//importing Components
+import SignUp from "./Components/SignUp";
+import Login from "./Components/Login";
+
 function App() {
   const State = useSelector((state) => state.user.userState);
   const Dispatch = useDispatch();
@@ -21,6 +25,9 @@ function App() {
     <>
       <Router>
         <Route path="/signup" exact={true}>
+          <SignUp />
+        </Route>
+        <Route path="/login">
           <Login />
         </Route>
       </Router>
