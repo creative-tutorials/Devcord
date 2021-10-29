@@ -11,7 +11,7 @@ import Login from "./Components/Login";
 function App() {
   const State = useSelector((state) => state.user.userState);
   const Dispatch = useDispatch();
-  useEffect(() => {
+  function updateReduxState() {
     const newStateObject = {};
     Object.keys(State).forEach((state) => {
       const value = localStorage.getItem(state)
@@ -20,6 +20,10 @@ function App() {
       newStateObject[state] = value;
     });
     Dispatch(updateUserState(newStateObject));
+  }
+  useEffect(() => {
+    updateReduxState();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <>
