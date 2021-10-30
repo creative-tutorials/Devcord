@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import "./Login.css";
 import axios from "axios";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { updateUserState } from "../../Reducers/userReducers";
+import { Redirect } from "react-router-dom";
 /*eslint no-useless-escape: 0*/
 const EmailRegex =
   /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 function Login() {
   const [warning, setWarning] = useState("");
+  const UserState = useSelector((state) => state.user.userState);
   const Dispatch = useDispatch();
   const submitLoginForm = (e) => {
     e.preventDefault();
@@ -53,38 +55,45 @@ function Login() {
   };
   return (
     <>
-      <div className="container flex items-center justify-center border-red-500 bg-red-50 h-screen">
-        <div className="text-center w-1/3 shadow-2xl rounded-2xl p-3">
-          <h2 className="text-4xl m-4">Welcome to Devcord!</h2>
-          <p className="m-3">Log in with your email and password </p>
-          <span className="text-red-600">{warning}</span>
-          <form
-            onSubmit={submitLoginForm}
-            className="flex flex-col text-center justify-center items-center"
-          >
-            <input
-              type="email"
-              name="email"
-              placeholder="example@email.com"
-              className="input rounded-lg border-2 m-2 text-center w-5/6 outline-none"
-              id="email"
-            ></input>
-            <input
-              type="password"
-              name="password"
-              placeholder="Enter your password here..."
-              className="input rounded-lg border-2 m-2 text-center w-5/6 outline-none"
-              id="password"
-            ></input>
-            <button
-              onClick={submitLoginForm}
-              className="bg-transparent bg-blue-700 rounded-2xl hover:bg-blue-500 text-white-500 font-semibold hover:text-white py-2 px-4 w-1/2 m-4"
+      {/* {UserState.username && <Redirect to={{
+      pathname:"/"
+      }} />} */}
+      {UserState.username ? (
+        <Redirect to={{ pathname: "/" }} />
+      ) : (
+        <div className="container flex items-center justify-center border-red-500 bg-red-50 h-screen">
+          <div className="text-center w-1/3 shadow-2xl rounded-2xl p-3">
+            <h2 className="text-4xl m-4">Welcome to Devcord!</h2>
+            <p className="m-3">Log in with your email and password </p>
+            <span className="text-red-600">{warning}</span>
+            <form
+              onSubmit={submitLoginForm}
+              className="flex flex-col text-center justify-center items-center"
             >
-              Sign in
-            </button>
-          </form>
+              <input
+                type="email"
+                name="email"
+                placeholder="example@email.com"
+                className="input rounded-lg border-2 m-2 text-center w-5/6 outline-none"
+                id="email"
+              ></input>
+              <input
+                type="password"
+                name="password"
+                placeholder="Enter your password here..."
+                className="input rounded-lg border-2 m-2 text-center w-5/6 outline-none"
+                id="password"
+              ></input>
+              <button
+                onClick={submitLoginForm}
+                className="bg-transparent bg-blue-700 rounded-2xl hover:bg-blue-500 text-white-500 font-semibold hover:text-white py-2 px-4 w-1/2 m-4"
+              >
+                Sign in
+              </button>
+            </form>
+          </div>
         </div>
-      </div>
+      )}
     </>
   );
 }

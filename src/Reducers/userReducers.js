@@ -11,7 +11,6 @@ export const userSlice = createSlice({
   },
   reducers: {
     updateUserState: (state, action) => {
-      console.log(action);
       state.userState =action.payload;
       Object.keys(state.userState).forEach((key) => {
         localStorage.setItem(key, state.userState[key]);

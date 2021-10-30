@@ -1,0 +1,31 @@
+.navbar {
+  background-color: #202225;
+  max-width: 4.2rem;
+  width: 4.2rem;
+  word-break: break-all;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.addServerIcon {
+  background-color: grey;
+  cursor: pointer;
+  border-radius: 30%;
+  background-image: url(../../../Assets/Images/plus.png);
+  background-size: cover;
+}
+.MuiAvatar-root{
+  cursor: pointer;
+}
+.MuiAvatar-root:hover{
+  animation: increaseBorderRadius 2sec ease;
+  animation-fill-mode: forwards;
+}
+@keyframes increaseBorderRadius{
+  from{
+  }
+  to{
+    border-radius: 10%;
+  }
+}
