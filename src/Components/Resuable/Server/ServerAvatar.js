@@ -2,24 +2,35 @@ import PropTypes from "prop-types";
 import "./Styles.css";
 import Logo from "../../../Assets/logo192.png";
 import Tooltip from "@mui/material/Tooltip";
-function ServerAvatar({ serverName, photoUrl, serverId }) {
+function ServerAvatar({ serverName, photoUrl, onClick }) {
   return (
     <>
-      <Tooltip title={serverName} arrow placement="right" >
+      {serverName ? (
+        <Tooltip title={serverName} arrow placement="right">
+          <div
+            className="server"
+            style={{
+              backgroundImage: photoUrl ? `url(${photoUrl})` : `url(${Logo})`,
+            }}
+            onClick={onClick}
+          ></div>
+        </Tooltip>
+      ) : (
         <div
           className="server"
           style={{
             backgroundImage: photoUrl ? `url(${photoUrl})` : `url(${Logo})`,
           }}
+          onClick={onClick}
         ></div>
-      </Tooltip>
+      )}
     </>
   );
 }
 
 ServerAvatar.propTypes = {
-  serverName: PropTypes.string.isRequired,
+  serverName: PropTypes.string,
   photoUrl: PropTypes.string,
-  serverId: PropTypes.string,
+  onClick: PropTypes.func,
 };
 export default ServerAvatar;
