@@ -1,0 +1,10 @@
+.join-div {
+  background: url(../../Assets/Images/joinScreen.png) no-repeat center/cover;
+}
+
+.serverName {
+  color: rgb(230, 180, 88);
+}
+::selection {
+  background: rgb(3, 108, 150);
+}

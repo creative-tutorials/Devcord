@@ -54,10 +54,10 @@ function SignUp() {
   };
   return (
     <>
-      <div className="container flex items-center justify-center border-red-500 bg-red-50 h-screen">
+      <div className="signup-div flex items-center justify-center border-red-500 bg-red-50 h-screen w-screen">
         <div className="text-center w-1/3 shadow-2xl rounded-2xl p-3">
           <h2 className="text-4xl m-4">Welcome to Devcord!</h2>
-          <p className="m-3">Log in with your email and password </p>
+          <p className="m-3">Sign up to get started !</p>
           <span className="text-red-600">{warning}</span>
           <form
             onSubmit={submitLoginForm}
@@ -88,7 +88,7 @@ function SignUp() {
               onClick={submitLoginForm}
               className="bg-transparent bg-blue-700 rounded-2xl hover:bg-blue-500 text-white-500 font-semibold hover:text-white py-2 px-4 w-1/2 m-4"
             >
-              Sign in
+              Sign Up
             </button>
           </form>
         </div>

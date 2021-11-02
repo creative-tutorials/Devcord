@@ -4,9 +4,8 @@
   color: white;
 }
 
-.container {
-  background: url(../../Assets/Images/background.jpg) repeat
-    center/cover;
+.login-div {
+  background: url(../../Assets/Images/background.jpg) no-repeat center/cover;
 }
 
 input {

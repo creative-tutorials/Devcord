@@ -61,7 +61,7 @@ function Login() {
       {UserState.username ? (
         <Redirect to={{ pathname: "/" }} />
       ) : (
-        <div className="container flex items-center justify-center border-red-500 bg-red-50 h-screen">
+        <div className="login-div flex items-center justify-center h-screen w-screen">
           <div className="text-center w-1/3 shadow-2xl rounded-2xl p-3">
             <h2 className="text-4xl m-4">Welcome to Devcord!</h2>
             <p className="m-3">Log in with your email and password </p>
@@ -88,7 +88,7 @@ function Login() {
                 onClick={submitLoginForm}
                 className="bg-transparent bg-blue-700 rounded-2xl hover:bg-blue-500 text-white-500 font-semibold hover:text-white py-2 px-4 w-1/2 m-4"
               >
-                Sign in
+                Log in
               </button>
             </form>
           </div>
